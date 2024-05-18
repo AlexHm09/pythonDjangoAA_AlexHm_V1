@@ -1,0 +1,26 @@
+{% extends 'anki/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block namepage %}
+    <h1>Главная страница</h1>
+
+{% endblock %}
+
+{% block content %}
+    <p>Содержание главной страницы </p>
+    {% if cards %}
+        {% for el in cards %}
+         <div class="alert alert-warning mt-2">
+                <h3>{{ el.name_cards }}</h3>
+             <p>{{ el.description }}</p>
+            </div>
+        {%endfor%}
+    {% else %}
+        <p>У нас нет записей</p>
+    {% endif %}
+
+{% endblock %}
+
