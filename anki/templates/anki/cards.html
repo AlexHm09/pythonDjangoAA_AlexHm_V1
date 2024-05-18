@@ -1,13 +1,26 @@
 {% extends 'anki/base.html' %}
 
 {% block title %}
-Карточки
+{{ title }}
 {% endblock %}
 
 {% block namepage %}
-<h1>Будем делать карточки</h1>
+    <h1>Наши карточки</h1>
+
 {% endblock %}
 
 {% block content %}
-<p>Содержание страницы с карточками </p>
+    <p>На этой странице отображаются добавленные карточки</p>
+    {% if cards %}
+        {% for el in cards %}
+         <div class="alert alert-warning mt-2">
+                <h3>{{ el.name_cards }}</h3>
+             <p>{{ el.description }}</p>
+            </div>
+        {%endfor%}
+    {% else %}
+        <p>У нас нет записей</p>
+    {% endif %}
+
 {% endblock %}
+

@@ -1,0 +1,21 @@
+{% extends 'anki/base.html' %}
+
+{% block title %}
+Создание новых карточек
+{% endblock %}
+
+{% block namepage %}
+    <h1>Страница создания карточек</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.name_cards }}<br>
+        {{ form.description }}<br>
+        <button type="submit" class="btn btn-success">Добавить</button>
+        <span>{{ error }}</span>
+    </form>
+
+{% endblock %}
+
+{% block content %}
+    <p>Содержание страницы с карточками </p>
+{% endblock %}
